@@ -1,0 +1,73 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public class PlayerManager : MonoBehaviour
+{
+
+  [Header("Movement")]
+    public Transform orientation;
+    public float playerSpeed;
+    float horizontalInput;
+    float verticalInput;
+    public float groundDrag;
+  [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask ground;
+    bool grounded;
+
+    Vector3 moveDirection;
+    Rigidbody rigBody;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created.//
+    private void Start()
+    {
+      rigBody = GetComponent<Rigidbody>();
+      rigBody.freezeRotation = true;
+
+    }
+
+    // Update is called once per frame.//
+    private void Update()
+    {
+        theInput();
+        grounded = Physics.Raycast(transform.position,UnityEngine.Vector3.down, playerHeight * 0.5f +0.2f, ground);
+
+        if(grounded){
+          rigBody.linearDamping = groundDrag;
+                }
+          else{
+            rigBody.linearDamping=0;
+            }
+          
+          controlSpeed();
+        
+    }
+
+    private void FixedUpdate(){
+      playerMove();
+    }
+    private void theInput()
+    { 
+    horizontalInput= Input.GetAxis("Horizontal");
+    verticalInput= Input.GetAxis("Vertical");
+
+    }
+    private void playerMove()
+    { 
+      //calculates movement direction
+      moveDirection =orientation.forward*verticalInput+orientation.right*horizontalInput;
+      rigBody.AddForce(moveDirection.normalized * playerSpeed * 10f, ForceMode.Force);
+    }
+    
+    private void controlSpeed(){
+      Vector3 fvelocity = new Vector3(rigBody.linearVelocity.x, 0f, rigBody.linearVelocity.z);
+
+      if(fvelocity.magnitude>playerSpeed){
+        Vector3 limitedVel = fvelocity.normalized * playerSpeed;
+        rigBody.linearVelocity = new Vector3(limitedVel.x,rigBody.linearVelocity.y,limitedVel.z);
+      }
+
+      
+    }
+}
