@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+  
 
   [Header("Movement")]
     public Transform orientation;
@@ -16,6 +18,8 @@ public class PlayerManager : MonoBehaviour
     public float playerHeight;
     public LayerMask ground;
     bool grounded;
+    [Header("Health")]
+    private int health, maxHealth;
 
     Vector3 moveDirection;
     Rigidbody rigBody;
@@ -24,7 +28,9 @@ public class PlayerManager : MonoBehaviour
     {
       rigBody = GetComponent<Rigidbody>();
       rigBody.freezeRotation = true;
-
+      health = 100;
+      maxHealth =100;
+      UpdateHealth(0);
     }
 
     // Update is called once per frame.//
@@ -58,6 +64,8 @@ public class PlayerManager : MonoBehaviour
       //calculates movement direction
       moveDirection =orientation.forward*verticalInput+orientation.right*horizontalInput;
       rigBody.AddForce(moveDirection.normalized * playerSpeed * 10f, ForceMode.Force);
+
+        
     }
     
     private void controlSpeed(){
@@ -68,6 +76,20 @@ public class PlayerManager : MonoBehaviour
         rigBody.linearVelocity = new Vector3(limitedVel.x,rigBody.linearVelocity.y,limitedVel.z);
       }
 
-      
     }
+
+  public void UpdateHealth(int value){
+
+    health += value;
+    
+    if(health<0){
+      print ("You are dead");
+    }
+
+    if(health>maxHealth){
+      health = maxHealth;
+    }
+    GUIManager.Instance.UpdateHealth((float) health/maxHealth);
+  }
+  
 }

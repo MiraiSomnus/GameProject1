@@ -8,12 +8,13 @@ public class EnemyManager : MonoBehaviour,IDamageable
     [SerializeField] private Transform trans;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
      public float health = 100f;
+     public int scoreValue= 25;
     private void Start()
     {
         //Sets enemy to player position
-        Vector3 playerPosition=  GameManager.instance.player.orientation.position;
-        Vector3 startingOffset= new Vector3(5f,0f,5f);
-        trans.position= playerPosition + startingOffset;        
+        //Vector3 playerPosition=  GameManager.instance.player.orientation.position;
+       // Vector3 startingOffset= new Vector3(5f,0f,5f);
+       // trans.position= playerPosition + startingOffset;        
     }
 
    private void Update(){
@@ -34,6 +35,10 @@ public class EnemyManager : MonoBehaviour,IDamageable
         health-=damage;
         if(health <= 0){
             Destroy(gameObject);
+            GUIManager.Instance.IncreaseScore(scoreValue);
         }
     }
+
+    
+
 }
