@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pistol
   damage: 35
-  maxDistance: 100
-  ammoCount: 0
+  maxDistance: 200
+  ammoCount: 10
   magazine: 10
   fireRate: 100
   reloadTime: 0.5
