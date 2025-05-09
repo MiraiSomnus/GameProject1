@@ -19,8 +19,9 @@ public class PlayerManager : MonoBehaviour
     public LayerMask ground;
     bool grounded;
     [Header("Health")]
-    private int health, maxHealth;
-
+    private float health, maxHealth;
+    public float damageInbetween =1f;
+     private float lastDamageTime;
     public EnemyManager enemy;
     Vector3 moveDirection;
     Rigidbody rigBody;
@@ -29,8 +30,8 @@ public class PlayerManager : MonoBehaviour
     {
       rigBody = GetComponent<Rigidbody>();
       rigBody.freezeRotation = true;
-      health = 60;
-      maxHealth =100;
+      health = 60f;
+      maxHealth =100f;
       UpdateHealth(0);
     }
 
@@ -50,6 +51,8 @@ public class PlayerManager : MonoBehaviour
           controlSpeed();
         
     }
+
+    
 
     private void FixedUpdate(){
       playerMove();
@@ -78,20 +81,33 @@ public class PlayerManager : MonoBehaviour
         rigBody.linearVelocity = new Vector3(limitedVel.x,rigBody.linearVelocity.y,limitedVel.z);
       }
 
+    } 
+    
+    public void OnCollisionStay(Collision collide)
+    { 
+        if(collide.gameObject.CompareTag("Enemy")&& Time.time - lastDamageTime >= damageInbetween){
+          UpdateHealth(-1f);
+          
+        }
     }
 
-  public void UpdateHealth(int value){
+  public void UpdateHealth(float value){
 
     health += value;
     
-    if(health<0){
+    if(health<=0){
       print ("You are dead");
+      Death();
     }
     health = Mathf.Clamp(health,0,maxHealth);
     if(health>maxHealth){
       health = maxHealth;
     }
-    GUIManager.Instance.UpdateHealth((float) health/maxHealth);
+    GUIManager.Instance.UpdateHealth( health/maxHealth);
   }
-  
+
+  public void Death(){
+  LevelManager.Instance.Retry();
+    gameObject.SetActive(false);
+  }
 }
