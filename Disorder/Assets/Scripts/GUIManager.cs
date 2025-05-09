@@ -41,7 +41,7 @@ public class GUIManager : MonoBehaviour
         SetScoreDisplay();
     }
 
-     public void updateScore(int value){
+     public void UpdateScore(int value){
         score = value;
         SetScoreDisplay();
     }
