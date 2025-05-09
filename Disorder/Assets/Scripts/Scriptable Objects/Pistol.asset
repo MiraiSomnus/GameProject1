@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Pistol
   damage: 35
   maxDistance: 200
-  ammoCount: 10
+  ammoCount: 9
   magazine: 10
   fireRate: 100
   reloadTime: 0.5

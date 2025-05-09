@@ -34,6 +34,7 @@ public class GunManager : MonoBehaviour
         gun.ammoCount = gun.magazine;
         gun.reload = false;
         Debug.Log("reloaded");
+        GUIManager.Instance.ammoCount(gun.ammoCount);
     }
     public void Fire()
     {   Debug.Log("Gun is shooting");
@@ -48,10 +49,12 @@ public class GunManager : MonoBehaviour
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                     damageable?.TakeDamage(gun.damage);
                 }
-
-                gun.ammoCount--;
+               
+                gun.ammoCount--; 
+                GUIManager.Instance.ammoCount(gun.ammoCount);
                 lastTimeFired = 0;
                 whenFired();
+                
          }
     }
 }

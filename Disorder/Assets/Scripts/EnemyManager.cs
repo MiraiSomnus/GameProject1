@@ -9,6 +9,8 @@ public class EnemyManager : MonoBehaviour,IDamageable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
      public float health = 100f;
      public int scoreValue= 25;
+
+
     private void Start()
     {
         //Sets enemy to player position
@@ -19,6 +21,10 @@ public class EnemyManager : MonoBehaviour,IDamageable
 
    private void Update(){
         Face();
+
+   }
+
+   private void Attack(){
 
    }
 
@@ -36,6 +42,7 @@ public class EnemyManager : MonoBehaviour,IDamageable
         if(health <= 0){
             Destroy(gameObject);
             GUIManager.Instance.IncreaseScore(scoreValue);
+           
         }
     }
 

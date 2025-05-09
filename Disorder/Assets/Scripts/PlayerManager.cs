@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     [Header("Health")]
     private int health, maxHealth;
 
+    public EnemyManager enemy;
     Vector3 moveDirection;
     Rigidbody rigBody;
     // Start is called once before the first execution of Update after the MonoBehaviour is created.//
@@ -28,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     {
       rigBody = GetComponent<Rigidbody>();
       rigBody.freezeRotation = true;
-      health = 100;
+      health = 60;
       maxHealth =100;
       UpdateHealth(0);
     }
@@ -59,6 +60,7 @@ public class PlayerManager : MonoBehaviour
     verticalInput= Input.GetAxis("Vertical");
 
     }
+
     private void playerMove()
     { 
       //calculates movement direction
@@ -85,7 +87,7 @@ public class PlayerManager : MonoBehaviour
     if(health<0){
       print ("You are dead");
     }
-
+    health = Mathf.Clamp(health,0,maxHealth);
     if(health>maxHealth){
       health = maxHealth;
     }
