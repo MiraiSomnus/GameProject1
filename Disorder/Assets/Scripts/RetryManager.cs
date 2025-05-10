@@ -5,14 +5,11 @@ public class RetryManager : MonoBehaviour
 {
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L)){
-            RetryCurrentScene();
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+             UnityEditor.EditorApplication.isPlaying = false;
         }
-        
+         
     }
 
-    public void RetryCurrentScene(){
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
-    }
-}//
+}
