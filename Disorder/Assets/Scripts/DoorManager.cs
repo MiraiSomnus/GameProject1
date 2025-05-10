@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
-
+/*
 public class DoorManager : MonoBehaviour
 {
 
@@ -25,4 +25,4 @@ public class DoorManager : MonoBehaviour
         
     
 
-} 
+} */

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GUIManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class GUIManager : MonoBehaviour
     [SerializeField] private Image healthBar_img;
      [SerializeField] private TextMeshProUGUI ammo_Txt;
     private int score;
-    //private int maxScore = 400;
+    private int maxScore = 400;
 
     public object Random { get; internal set; }
 
@@ -35,9 +36,9 @@ public class GUIManager : MonoBehaviour
 
     void Update()
     {
-        /*if(score==maxScore){
-            scene
-        }*/
+        if(score==maxScore){
+            SceneManager.LoadScene("END");
+        }
     }
 
     private void SetScoreDisplay(){
