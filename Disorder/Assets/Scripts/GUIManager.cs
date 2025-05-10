@@ -12,7 +12,7 @@ public class GUIManager : MonoBehaviour
     [SerializeField] private Image healthBar_img;
      [SerializeField] private TextMeshProUGUI ammo_Txt;
     private int score;
-    private int maxScore = 400;
+    private int maxScore = 600;
 
     public object Random { get; internal set; }
 

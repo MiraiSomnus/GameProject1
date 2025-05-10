@@ -3,14 +3,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TitleManager : MonoBehaviour
+public class StoryManager : MonoBehaviour
 {
 
     void Update()
     {
       if(Input.GetKeyDown(KeyCode.Mouse0)){
     
-    SceneManager.LoadScene("Story");
+    SceneManager.LoadScene("Game");
         
         }  
     }
