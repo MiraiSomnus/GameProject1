@@ -17,8 +17,10 @@ public class PlayerShoot : MonoBehaviour{
     {
     if(Input.GetMouseButton(0))
       gunShoot?.Invoke();
+      //Sound
       // The ? is an null condional operator it disables a null exception if it occurs.//
     if (Input.GetKeyDown(reloadKey))
       reloadInput?.Invoke(); 
+      //Sound
     }
 }

@@ -97,6 +97,7 @@ public class PlayerManager : MonoBehaviour
     
     if(health<=0){
       print ("You are dead");
+      //PlayerDeath
       Death();
     }
     health = Mathf.Clamp(health,0,maxHealth);

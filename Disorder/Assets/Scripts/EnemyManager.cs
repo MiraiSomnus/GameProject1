@@ -43,6 +43,7 @@ public class EnemyManager : MonoBehaviour,IDamageable
     {
         health-=damage;
         if(health <= 0){
+            //Enemy Death
             Destroy(gameObject);
             GUIManager.Instance.IncreaseScore(scoreValue);
            
