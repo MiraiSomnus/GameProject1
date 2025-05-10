@@ -9,8 +9,27 @@ public class GunManager : MonoBehaviour
     [SerializeField] private Gun gun;
     [SerializeField] private Transform muzzle;
 
+    public static GunManager Instance;
+
     float lastTimeFired;
+
+    private void Awake()
+    {
+        if (Instance !=null && Instance != this){
+            //creates singleton if non exist whilst assinging to the object-R
+        Destroy(gameObject);
+        }
+
     
+
+        // Singleton exists so destroy object
+        else{
+            Instance = this;
+        }
+    }
+    
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
@@ -26,6 +45,7 @@ public class GunManager : MonoBehaviour
 
         StartCoroutine(Reload());
         } Debug.Log("reloading");
+        
     }    
     private IEnumerator Reload(){
        

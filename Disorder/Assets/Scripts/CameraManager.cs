@@ -50,5 +50,9 @@ public class CameraManager : MonoBehaviour
 
             player.forward = aimDirection.normalized;
         }
+
+       /* if (player==null){
+            Destroy(this.GetComponent<CameraFollow>());
+        }*/
     }
 }

@@ -11,6 +11,7 @@ public class GUIManager : MonoBehaviour
     [SerializeField] private Image healthBar_img;
      [SerializeField] private TextMeshProUGUI ammo_Txt;
     private int score;
+    //private int maxScore = 400;
 
     public object Random { get; internal set; }
 
@@ -30,6 +31,13 @@ public class GUIManager : MonoBehaviour
     {
         score_Txt.text = "0";
         SetScoreDisplay ();
+    }
+
+    void Update()
+    {
+        /*if(score==maxScore){
+            scene
+        }*/
     }
 
     private void SetScoreDisplay(){

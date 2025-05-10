@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     {
       rigBody = GetComponent<Rigidbody>();
       rigBody.freezeRotation = true;
-      health = 60f;
+      health = 100f;
       maxHealth =100f;
       UpdateHealth(0);
     }

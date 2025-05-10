@@ -1,24 +1,28 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class DoorManager : MonoBehaviour
 {
 
-  int doorScore= 200;
+  public int doorScore= 200;
+  int score;
+  
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    void Update()
+    void Start ()
     {
-        
+       if( doorScore<=score){
+            doorScore-= score;
+        FindFirstObjectByType<GUIManager>().UpdateHealth(score); 
+		Destroy(gameObject);
+        }
        
     }
 
-    public void doorDestroy (int score)
-    {
-        doorScore -= score;
-        if(doorScore <= 0){
-            Destroy(gameObject);
-            GUIManager.Instance.UpdateScore(doorScore);
-           
-        }
-    }
-}
+   
+        
+        
+    
+
+} 

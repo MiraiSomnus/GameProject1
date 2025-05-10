@@ -6,6 +6,8 @@ using UnityEngine;
 /** This files creates data holder that can be used for the various guns and weapons that will be present within the weapons system **/
 public class Gun : ScriptableObject
 {
+    public static Gun Instance;
+
     [Header("Name")]
     public new string name;
     [Header("Damage/Distance")]

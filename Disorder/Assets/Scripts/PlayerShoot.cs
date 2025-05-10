@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour{
      
-
+    public static PlayerShoot Instance;
       public static Action gunShoot;
       public static Action reloadInput;
       
+      
 
-    [SerializeField] private KeyCode reloadKey = KeyCode.R;
+    [SerializeField] public KeyCode reloadKey = KeyCode.R;
+    
     private void Update()
     {
     if(Input.GetMouseButton(0))

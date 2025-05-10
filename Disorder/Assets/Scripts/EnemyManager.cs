@@ -10,6 +10,9 @@ public class EnemyManager : MonoBehaviour,IDamageable
      public float health = 100f;
      public int scoreValue= 25;
 
+     public static EnemyManager Instance;
+
+
 
     private void Start()
     {
