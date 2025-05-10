@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour,IDamageable
 {
     [SerializeField] private Transform trans;
+    [SerializeField]private AudioClip EnemyHurt;
+    [SerializeField]private AudioClip EnemyDeath;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
      public float health = 100f;
      public int scoreValue= 25;
@@ -40,13 +42,16 @@ public class EnemyManager : MonoBehaviour,IDamageable
    }
 
     public void TakeDamage(float damage)
-    {
+    {   
         health-=damage;
         if(health <= 0){
-            //Enemy Death
+            AudioSource.PlayClipAtPoint(EnemyDeath,transform.position,1f);
             Destroy(gameObject);
             GUIManager.Instance.IncreaseScore(scoreValue);
            
+        }
+        else{
+            AudioSource.PlayClipAtPoint(EnemyHurt,transform.position,1f);
         }
     }
 

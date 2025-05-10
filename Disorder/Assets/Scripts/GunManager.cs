@@ -9,6 +9,9 @@ public class GunManager : MonoBehaviour
     [SerializeField] private Gun gun;
     [SerializeField] private Transform muzzle;
 
+    [SerializeField] private AudioClip reloadSnd;
+    [SerializeField] private AudioClip shootSnd;
+
     public static GunManager Instance;
 
     float lastTimeFired;
@@ -44,8 +47,9 @@ public class GunManager : MonoBehaviour
         if(!gun.reload){
 
         StartCoroutine(Reload());
+       
         } Debug.Log("reloading");
-        
+         AudioSource.PlayClipAtPoint(reloadSnd,transform.position,10f);
     }    
     private IEnumerator Reload(){
        
@@ -58,7 +62,7 @@ public class GunManager : MonoBehaviour
     }
     public void Fire()
     {   Debug.Log("Gun is shooting");
-
+        
          if(gun.ammoCount > 0)
          {
             if (shootAvail())
@@ -74,7 +78,7 @@ public class GunManager : MonoBehaviour
                 GUIManager.Instance.ammoCount(gun.ammoCount);
                 lastTimeFired = 0;
                 whenFired();
-                
+                AudioSource.PlayClipAtPoint(shootSnd,transform.position,10f);
          }
     }
 }

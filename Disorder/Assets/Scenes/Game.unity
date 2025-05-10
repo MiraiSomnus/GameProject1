@@ -589,6 +589,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 11400000, guid: bd009d100ca6c6a4e8f15077419427ee, type: 2}
   muzzle: {fileID: 1280911400}
+  reloadSnd: {fileID: 8300000, guid: 82bd83ccb21d01d4ca5bdc9b68a021cd, type: 3}
+  shootSnd: {fileID: 8300000, guid: 05fcf7cf504fa954cb6a50496c229579, type: 3}
 --- !u!1 &133330067
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +658,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 142166192}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 100
   scoreValue: 25
 --- !u!54 &142166188
@@ -964,6 +968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 181590903}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 500
   scoreValue: 200
 --- !u!54 &181590905
@@ -1308,6 +1314,7 @@ MonoBehaviour:
     m_Bits: 1024
   damageInbetween: 1
   enemy: {fileID: 0}
+  playerDeath: {fileID: 8300000, guid: a95fb3170972b5b48a6cf969d1bd7350, type: 3}
 --- !u!136 &228746922
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1677,6 +1684,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 243537261}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 100
   scoreValue: 25
 --- !u!54 &243537257
@@ -2189,6 +2198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 308514353}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 100
   scoreValue: 25
 --- !u!54 &308514349
@@ -4977,6 +4988,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 745032223}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 100
   scoreValue: 25
 --- !u!54 &745032225
@@ -6605,6 +6618,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 1113173231}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 100
   scoreValue: 25
 --- !u!54 &1113173227
@@ -7154,6 +7169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 1250556176}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 100
   scoreValue: 25
 --- !u!54 &1250556172
@@ -7819,6 +7836,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 1390426057}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 100
   scoreValue: 25
 --- !u!54 &1390426053
@@ -8200,6 +8219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 1423722265}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 500
   scoreValue: 200
 --- !u!1 &1439605792
@@ -8419,135 +8440,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 678579770}
   m_LocalEulerAnglesHint: {x: 0.371, y: 89.152, z: -0.814}
---- !u!1 &1450219602
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1450219604}
-  - component: {fileID: 1450219603}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1450219603
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450219602}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 03a6e4dd2cef50d43b9d360051f5c094, type: 3}
-  m_Resource: {fileID: 8300000, guid: 03a6e4dd2cef50d43b9d360051f5c094, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1450219604
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450219602}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 370.5, y: 208.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1468506388
 GameObject:
   m_ObjectHideFlags: 0
@@ -8880,6 +8772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans: {fileID: 1475735879}
+  EnemyHurt: {fileID: 8300000, guid: d2a65fa13c015034aa5603a62325b39b, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: 4c0b9ffd92e14554ab58a6ac6b67b87e, type: 3}
   health: 100
   scoreValue: 25
 --- !u!54 &1475735875
@@ -12488,6 +12382,5 @@ SceneRoots:
   - {fileID: 1239552904}
   - {fileID: 678579770}
   - {fileID: 988410045}
-  - {fileID: 1450219604}
   - {fileID: 1525306040}
   - {fileID: 30546088}

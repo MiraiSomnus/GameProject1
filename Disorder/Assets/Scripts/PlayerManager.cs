@@ -25,6 +25,8 @@ public class PlayerManager : MonoBehaviour
     public EnemyManager enemy;
     Vector3 moveDirection;
     Rigidbody rigBody;
+    
+    [SerializeField] private AudioClip playerDeath;
     // Start is called once before the first execution of Update after the MonoBehaviour is created.//
     private void Start()
     {
@@ -97,7 +99,7 @@ public class PlayerManager : MonoBehaviour
     
     if(health<=0){
       print ("You are dead");
-      //PlayerDeath
+       AudioSource.PlayClipAtPoint(playerDeath,transform.position,1f);
       Death();
     }
     health = Mathf.Clamp(health,0,maxHealth);
